@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 def envoyer_email(statut, build_url, job_name):
     # --- CONFIGURATION (À MODIFIER PAR L'UTILISATEUR) ---
     expediteur = "sh97.sissa@gmail.com"
-    mot_de_passe = "Sissa1997"
+    mot_de_passe = "sissa1997"
     destinataire = "sh97.sissa@gmail.com"
     # ----------------------------------------------------
 

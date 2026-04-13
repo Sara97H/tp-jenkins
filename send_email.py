@@ -15,6 +15,8 @@ def envoyer_email(statut, build_url, job_name):
         corps = f"Le build Jenkins a échoué.\n\nVous pouvez consulter les logs ici : {build_url}"
     elif statut == "fixed":
         corps = f"Le build Jenkins est de nouveau stable (Corrigé).\n\nConsultez le build ici : {build_url}"
+    elif statut == "success":
+        corps = f"Le build Jenkins a réussi avec succès.\n\nConsultez le build ici : {build_url}"
     else:
         corps = f"Statut inconnu : {statut}"
 

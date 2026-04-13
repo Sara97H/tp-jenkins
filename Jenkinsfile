@@ -134,5 +134,15 @@ pipeline {
                 }
             }
         }
+        success {
+            script {
+                echo "Le build a réussi. Envoi de l'email..."
+                if (isUnix()) {
+                    sh "python3 send_email.py success \"${env.BUILD_URL}\" \"${env.JOB_NAME}\""
+                } else {
+                    bat "python send_email.py success \"${env.BUILD_URL}\" \"${env.JOB_NAME}\""
+                }
+            }
+        }
     }
 }

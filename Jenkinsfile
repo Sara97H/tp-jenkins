@@ -113,19 +113,17 @@ pipeline {
             steps {
                 bat 'mvn jacoco:report -B'
             }
-            post {
-                always {
-                    // INFO : Commenté car le plugin JaCoCo n'est pas installé sur Jenkins
-                    /*
-                    jacoco(
-                        execPattern:   '**/target/jacoco.exec',
-                        classPattern:  '**/target/classes',
-                        sourcePattern: '**/src/main/java',
-                        minimumLineCoverage: '70'
-                    )
-                    */
-                }
-            }
+            // INFO : Bloc post commenté car le plugin JaCoCo n'est pas installé sur Jenkins
+            // post {
+            //     always {
+            //         jacoco(
+            //             execPattern:   '**/target/jacoco.exec',
+            //             classPattern:  '**/target/classes',
+            //             sourcePattern: '**/src/main/java',
+            //             minimumLineCoverage: '70'
+            //         )
+            //     }
+            // }
         }
 
         // ── Stage 6 : Analyse qualité ─────────────────

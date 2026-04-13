@@ -137,25 +137,26 @@ pipeline {
                         -B
                 '''
             }
-            post {
-                always {
-                    recordIssues(
-                        enabledForFailure: true,
-                        tools: [
-                            checkStyle(pattern: '**/checkstyle-result.xml'),
-                            pmdParser(pattern:  '**/pmd.xml'),
-                            cpd(pattern:        '**/cpd.xml'),
-                            spotBugs(pattern:   '**/spotbugsXml.xml')
-                        ],
-                        // Rendre le build UNSTABLE si > 10 avertissements
-                        qualityGates: [[
-                            threshold: 10,
-                            type: 'TOTAL',
-                            unstable: true
-                        ]]
-                    )
-                }
-            }
+            // INFO : Bloc post commenté car le plugin "Warnings Next Generation" n'est pas installé
+            // post {
+            //     always {
+            //         recordIssues(
+            //             enabledForFailure: true,
+            //             tools: [
+            //                 checkStyle(pattern: '**/checkstyle-result.xml'),
+            //                 pmdParser(pattern:  '**/pmd.xml'),
+            //                 cpd(pattern:        '**/cpd.xml'),
+            //                 spotBugs(pattern:   '**/spotbugsXml.xml')
+            //             ],
+            //             // Rendre le build UNSTABLE si > 10 avertissements
+            //             qualityGates: [[
+            //                 threshold: 10,
+            //                 type: 'TOTAL',
+            //                 unstable: true
+            //             ]]
+            //         )
+            //     }
+            // }
         }
 
         // ── Stage 7 : Archiver le JAR ─────────────────

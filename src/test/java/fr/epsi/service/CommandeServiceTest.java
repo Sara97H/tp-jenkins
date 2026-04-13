@@ -109,6 +109,13 @@ class CommandeServiceTest {
             () -> service.appliquerRemise(100.0, 150));
     }
 
+    @Test
+    @DisplayName("Remise 100% ramène le total à 0")
+    void appliquerRemise_CentPourcent_RetourneZero() {
+        double resultat = service.appliquerRemise(100.0, 100);
+        assertEquals(0.0, resultat, 0.001);
+    }
+
     // ─────────────────────────────────────────────────
     // categoriserCommande
     // ─────────────────────────────────────────────────
@@ -129,5 +136,17 @@ class CommandeServiceTest {
     @DisplayName("500€ → catégorie GRANDE")
     void categoriser_CinqCentsEuros_RetourneGrande() {
         assertEquals("GRANDE", service.categoriserCommande(500.0));
+    }
+
+    @Test
+    @DisplayName("50€ exact → catégorie MOYENNE")
+    void categoriser_CinquanteEurosExact_RetourneMoyenne() {
+        assertEquals("MOYENNE", service.categoriserCommande(50.0));
+    }
+
+    @Test
+    @DisplayName("200€ exact → catégorie GRANDE")
+    void categoriser_DeuxCentsEurosExact_RetourneGrande() {
+        assertEquals("GRANDE", service.categoriserCommande(200.0));
     }
 }

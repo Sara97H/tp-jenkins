@@ -44,6 +44,23 @@ class CommandeServiceIT {
     }
 
     @Test
+    @DisplayName("Flux complet sans mock : ajout articles → total → catégorie MOYENNE")
+    void fluxComplet_AjoutCalculCategorieMoyenne_SansMock() {
+        // GIVEN
+        Panier panier = new Panier();
+        panier.ajouter(new Article("Livre", 15.0), 4);   // 60€
+        panier.ajouter(new Article("Classeur", 12.0), 5); // 60€
+
+        // WHEN
+        double total = service.calculerTotal(panier);
+        String categorie = service.categoriserCommande(total);
+
+        // THEN
+        assertEquals(120.0, total, 0.001);
+        assertEquals("MOYENNE", categorie);
+    }
+
+    @Test
     @DisplayName("Commande premium : panier > 200€ → catégorie GRANDE")
     void pipelineComplete_PanierPremium_CategorieGrande() {
         // GIVEN

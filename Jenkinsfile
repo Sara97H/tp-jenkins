@@ -21,10 +21,8 @@ pipeline {
                 // 2. AJOUT : On se déplace dans le bon dossier avant de lancer les commandes
                 script {
                     if (isUnix()) {
-                        sh 'exit 1 // Simulation erreur'
                         sh 'mvn clean compile -B'
                     } else {
-                        bat 'exit 1 // Simulation erreur'
                         bat 'mvn clean compile -B'
                     }
                 }

@@ -46,7 +46,8 @@ class CommandeServiceTest {
         double total = service.calculerTotal(panier);
 
         // THEN
-        assertEquals(6.0, total, 0.001);
+        // ERREUR SIMULÉE ICI : on attend 7.0 au lieu de 6.0 pour faire échouer le test
+        assertEquals(7.0, total, 0.001);
     }
 
     @Test

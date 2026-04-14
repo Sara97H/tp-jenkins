@@ -23,7 +23,7 @@ def envoyer_email(statut, build_url, job_name):
     msg = MIMEText(corps, "plain", "utf-8")
     msg['Subject'] = sujet
     msg['From'] = expediteur
-    msg['To'] = destinataire;
+    msg['To'] = destinataire
 
     try:
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)

@@ -49,7 +49,7 @@ mvn clean verify
 mvn clean verify checkstyle:checkstyle pmd:pmd pmd:cpd spotbugs:spotbugs
 ```
 
-### Résultats attendus
+### Résultats attendus  (ftr)
 
 ```
 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0

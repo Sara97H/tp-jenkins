@@ -31,7 +31,7 @@ def envoyer_email(statut, build_url, job_name):
         server.sendmail(expediteur, destinataire, msg.as_string())
         server.quit()
         print(f"Email envoyé avec succès pour le statut {statut}.")
-    except Exception as e:
+   
         print(f"Erreur lors de l'envoi de l'email : {e}")
 
 if __name__ == "__main__":

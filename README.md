@@ -102,8 +102,7 @@ Warnings NG – CPD            : **/cpd.xml
 Warnings NG – SpotBugs       : **/spotbugsXml.xml
 ```
 
----
-
+----
 ## 📚 Ressources
 
 - [Jenkins.io](https://jenkins.io) – Documentation officielle

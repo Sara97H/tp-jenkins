@@ -46,7 +46,6 @@ class CommandeServiceTest {
         double total = service.calculerTotal(panier);
 
         // THEN
-        fail("Simulation d'erreur pour tester l'envoi de mail par Jenkins");
         assertEquals(6.0, total, 0.001);
     }
 
